@@ -43,8 +43,16 @@ class EstructuradeDatos{
 
 
         //variables
-        int edad, opcion, socio, numbinario;
-        double precio, bono;
+        int edad, opcion, socio, numbinario, total, numtotal, Num, n, grados, grados2, operacion, fig, calculo;
+        int cantidad = 0;
+        int suma=0;
+        int positivos = 0;
+        int negativos = 0;
+        float costo = 0;
+        float resultado = 0;
+        double pi = 3.1416;
+        float a,b;
+        double precio, bono, celcius, kelvine, rankine, a1, resul, c, d, e;
         char letras;
         String binario = "";
 
@@ -156,30 +164,289 @@ class EstructuradeDatos{
 
 
                 case 3:
-                    //tarea
+                    System.out.println("insterte 1 si los grados son celcius, 2 si es kelvine o 3 si son rankine");
+                    grados = entrada.nextInt();
+                    if (grados == 1){
+                        System.out.println("inserte los grados celcius");
+                        celcius = entrada.nextDouble();
+                        System.out.println("inserte 1 si quiere convertir a kelvine o 2 si quiere convertir a rankine");
+                        grados2 = entrada.nextInt();
+                        if (grados2 == 1){
+                            kelvine = celcius + 273.15;
+                            System.out.println("Los grados celcius convertidos son: "+ kelvine);
+                        }else{
+                            if (grados2 == 2){
+                                rankine = (celcius * 1.8) + 491.67;
+                                System.out.println("Los grados celcius convertidos son: "+ rankine);
+                            }else{
+                                System.out.println("su respuesta no es valida");
+                            }
+                        }
+                    }else{
+                        if (grados == 2){
+                            System.out.println("inserte los grados kelvine");
+                            kelvine = entrada.nextDouble();
+                            System.out.println("inserte 1 si quiere convertir a celcius o 2 si quiere convertir a rankine");
+                            grados2 = entrada.nextInt();
+                            if (grados2 == 1){
+                                celcius = kelvine - 273.15;
+                                System.out.println("Los grados kelvine convertidos son: "+ celcius);
+                            }else{
+                                rankine = kelvine * 1.8;
+                                System.out.println("Los grados kelvine convertidos son: "+ rankine);
+                            }                            
+                        }else{
+                            if (grados == 3){
+                                System.out.println("Inserte los grados rankine");
+                                rankine = entrada.nextDouble();
+                                System.out.println("inserte 1 si quiere convertir a celcius o 2 si quiere convertir a kelvine");
+                                grados2 = entrada.nextInt();
+                                
+                                if(grados2 == 1){
+                                    celcius = (rankine - 491.67) * 1.8;
+                                    System.out.println("los grados rankine convertidos son: " + celcius);
+                                }else{
+                                    kelvine = rankine / 1.8;
+                                    System.out.println("los grados rankine convertidos son: " + kelvine);
+                                }
 
+                            }else{
+                                System.out.println("su respuesta no fue comprendida intente de nuevo");
+                            }
+
+                        }
+                    }
+                    break;                
+    
                 case 4:
+                /*trabajo*/
+
+                System.out.println("inserte ¿cuantos numeros va a ingresar?");
+                total = entrada.nextInt();
+
+                do{
+                    System.out.println("inserte el numero");
+                    numtotal=entrada.nextInt();
+                    if(numtotal == 0){
+                        //contar cuantos positivos hay
+                        positivos = positivos + 0;
+                    }else{
+                        if(numtotal > 0){
+                            positivos = positivos + 1;
+
+                        }else{
+                            negativos = negativos + 1;
+
+                        }
+                    }
+                //saber el total
+                total = total - 1;
+
+
+                }while(total !=0);
+                System.out.println("total de positivos es: "+ positivos);
+                System.out.println("total de negativos es: "+ negativos);
+                break;
 
                 case 5:
-
+                    System.out.println("¿Cuantos elementos vas a ingresar?");
+                    total = entrada.nextInt();
+                    for(int i = 1; i <= total; i++){
+                        System.out.println("ingresa el primer producto");
+                        costo = entrada.nextFloat();
+                        System.out.println("ingresa la cantidad del producto");
+                        cantidad = entrada.nextInt();
+                        resultado = costo * cantidad;
+                    }
+                    break;
                 case 6:
-
+                    //tarea
+                    System.out.println("Ingrese 1 si tiene un cuadrado, 2 si tiene un triangulo, 3 si tiene un rectangulo, 4 si tiene un circulo: ");
+                    fig = entrada.nextInt();
+                    switch(fig){
+                        case 1 :
+                            System.out.println("inserte cuanto mide un lado del cuadrado");
+                            c = entrada.nextFloat();
+                            System.out.println("Inserte 1 para calcular perimetro 2 para calcular area");
+                            calculo = entrada.nextInt();
+                            switch(calculo){
+                                case 1 :
+                                    resul = c * 4;
+                                    System.out.println("El perimetro del cuadrado es: " + resul);
+                                    break;
+                                case 2 :
+                                    resul = c * c;
+                                    System.out.println("El area del cuadrado es: " + resul);
+                                    break;
+                                default :
+                                    System.out.println("La respuesta no es correcta intente de nuevo");                            
+                            }
+                                break;
+                        case 2 :
+                            System.out.println("Inserte 1 para calcular perimetro 2 para calcular area");
+                            calculo = entrada.nextInt();
+                            switch(calculo){
+                                case 1 :
+                                    System.out.println("inserte cuanto mide el lado A del triangulo");
+                                    c = entrada.nextFloat();
+                                    System.out.println("inserte cuanto mide el lado B del triangulo");
+                                    d = entrada.nextFloat();
+                                    System.out.println("inserte cuanto mide el lado C del triangulo");
+                                    e = entrada.nextFloat();
+                                    resul = c + d + e;
+                                    System.out.println("El perimetro del triangulo es de: " + resul);
+                                    break;                                                                         
+                                case 2 :
+                                    System.out.println("inserte cuanto mide la base del triangulo");
+                                    c = entrada.nextFloat();
+                                    System.out.println("inserte cuanto mide la altura del triangulo");
+                                    d = entrada.nextFloat();                            
+                                    resul = (c*d) / 2;
+                                    System.out.println("el area del triangulo es: " + resul);
+                                    break;
+                                default :    
+                                    System.out.println("La respuesta no es correcta intente de nuevo");
+                                
+                            }   
+                                break;                         
+                        case 3 :
+                            System.out.println("inserte cuanto mide el lado A del Rectangulo");
+                            c = entrada.nextFloat();
+                            System.out.println("inserte cuanto mide el lado B del Rectangulo");
+                            d = entrada.nextFloat();
+                            System.out.println("Inserte 1 para calcular perimetro 2 para calcular area");
+                            calculo = entrada.nextInt();
+                            switch(calculo){
+                                case 1 : 
+                                    resul = (2*c + 2*d);
+                                    System.out.println("El perimetro del rectangulo es de: " + resul);
+                                    break;
+                                case 2 : 
+                                    resul = c * d;
+                                    System.out.println("El area del rectangulo es de: " + resul);
+                                    break;
+                                default :
+                                    System.out.println("La respuesta no es correcta intente de nuevo");
+                                
+                            }
+                                break;  
+                        case 4 :
+                            System.out.println("inserte cuanto mide el radio del circulo");
+                            c = entrada.nextFloat();
+                            System.out.println("Inserte 1 para calcular perimetro 2 para calcular area");
+                            calculo = entrada.nextInt();
+                            switch(calculo){
+                                case 1 :
+                                    resul = 2*c*pi;
+                                    System.out.println("El perimetro de el circulo es de: " + resul);
+                                    break;
+                                case 2 :
+                                    a1 = Math.pow(c, 2);
+                                    resul = pi*a1;
+                                    System.out.println("El area del circulo es de: "+ resul);
+                                    break;
+                                default :
+                                    System.out.println("La respuesta no es correcta intente de nuevo");
+                            }                            
+                    
+                    }
+                    break;
                 case 7: 
+                    for (n = 1; n<=10; n++){
+                        System.out.println(n + " " + (n*10) + " " + (n*100) +  " " + (n*1000));
+
+                    }
+                    break;
 
                 case 8:
-                    //tarea de ustedes
+                    System.out.println("introduce el digito de sumatoria que no sea menor a 0");
+                    Num = entrada.nextInt();
+
+                    if (Num > 0)
+                    {
+                        for (int i=1; i<=Num; i++){
+                            suma=suma + i;
+                    } 
+                    System.out.println("El resultado de la sumatoria es: "+ suma);
+                    }
+                    else 
+                    {
+                        System.out.println("El valor es menor a 0");
+                    }
 
                 case 9:
-
-
+                    System.out.println("inserta el numero de lados: ");
+                    n = entrada.nextInt();
+                    if ( n >= 1 && n <= 20){
+                        for(int i = 1; i<=n; i++){
+                            for (int j = 1; j<=n; j++){
+                                System.out.print("* ");
+                            }
+                        System.out.println(" ");
+                        }
+                    }else{
+                        System.out.println("El rango debe ser entre 1 y 20, intente nuevamente");
+                    }
+                    break;
                 case 10:
+                    System.out.println("inserta el numero de lados: ");
+                    n = entrada.nextInt();
+                    if (n >= 1 && n <=20){
+                        for (int i = 0; i < n; i++){
+                            System.out.print(" * ");
+                        }
+                        System.out.println();
+                        for(int i = 0; i < n-2; i++){
+                            System.out.print(" * ");
+                            for(int j = 0 ; j< n-2 ; j++){
+                                System.out.print("");
+                            }
+                        System.out.println("    * ");                            
+                        }
+                        for (int i = 0; i < n; i++){
+                            System.out.print(" * ");                        
+                        }
+                        System.out.println();
+                    }
+                    break;
 
                 case 11:
                     //tarea
 
                 case 12:
-
+                    //tarea
                 case 13:
+                    System.out.println("ingresa un numero: ");
+                    a = entrada.nextFloat();
+                    System.out.println("ingresa otro numero: ");
+                    b = entrada.nextFloat();
+                    System.out.println("ingresa que operación se va a realizar: (+, -, *, /)");
+                    operacion = entrada.next().charAt(0);
+                    switch(operacion){
+                        case '+':
+                            resultado = a+b;
+                            System.out.println("la suma es de: "+ resultado);
+                            break;
+                        case '-':
+                            resultado = a-b;
+                            System.out.println("la resta es de: "+ resultado);
+                            break;
+                        case '*':
+                            resultado = a*b;
+                            System.out.println("la multiplicacion es de: "+ resultado);
+                            break;
+                        case '/' :
+                            if(b !=0){
+                                resultado = a/b;
+                                System.out.println("la división es de: " + resultado);
+                            }else{
+                                System.out.println("no se puede dividir entre cero (0)");
+                            }
+                            break;                 
+                        default :
+                            System.out.println("operacion no valida");
+                    }
+
 
                 default:
                     System.out.println("Gracias por ver este hermoso programa :3");
@@ -204,6 +471,7 @@ class EstructuradeDatos{
     
     }while(letras == 's');
     //aqui se cierra el do
+    /*exepciones de errores, formato de */
 
    
 
