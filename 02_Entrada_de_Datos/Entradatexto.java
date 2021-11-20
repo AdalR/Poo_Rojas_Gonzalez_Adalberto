@@ -16,7 +16,7 @@ class Entradatexto{
 
         nombre = System.console().readLine();
 
-        System.out.println("Hola, "+ nombre + " Bienvenido a tu segundo programa");
+        System.out.println("Hola, " + nombre + " Bienvenido a tu segundo programa");
     }
 
 }        
