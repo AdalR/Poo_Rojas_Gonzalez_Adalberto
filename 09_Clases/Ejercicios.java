@@ -207,7 +207,9 @@ public class Ejercicios{
         un cuadrado de maximo 1000 de dimension
         */
 
-        int n, m=0;
+        int n;
+        boolean m= false;
+        char h;
 
         do{
             System.out.println("Ingrese el numero de asteristicos que desea que tenga el cuadro: ");
@@ -237,8 +239,15 @@ public class Ejercicios{
                 System.out.println();
 
             }
+            System.out.println("deseas hacer otro cuadrado, presiona 's' para si");
+            h = entrada.next().charAt(0);
+            if (h == 's' || h == 'S'){
+
+            }else{
+                m = true;
+            }                
             //salir de ese bucle infinito :3 que se quiebren la cabezita un ratito
-        }while(m==0);
+        }while(!m);
 
     }
 
