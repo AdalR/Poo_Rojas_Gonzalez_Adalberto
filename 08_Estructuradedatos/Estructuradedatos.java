@@ -378,8 +378,8 @@ class EstructuradeDatos{
                     System.out.println("inserta el numero de lados: ");
                     n = entrada.nextInt();
                     if ( n >= 1 && n <= 20){
-                        for(int i = 5; i<=n; i++){
-                            for (int j = 5; j<=n; j++){
+                        for(int i = 1; i<=n; i++){
+                            for (int j = 1; j<=n; j++){
                                 System.out.print("* ");
                             }
                         System.out.println(" ");
